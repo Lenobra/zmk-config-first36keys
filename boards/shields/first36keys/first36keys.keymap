@@ -19,13 +19,13 @@
         };
     };
 
-//    conditional_layers {
-//        compatible = "zmk,conditional-layers";
-//        tri_layer {
-//            if-layers = <1 2>;
-//            then-layer = <3>;
-//        };
-//    };
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        config_layer {
+            if-layers = <1 2>;
+            then-layer = <3>;
+        };
+    };
 
     keymap {
         compatible = "zmk,keymap";
@@ -39,7 +39,7 @@
             HRML(R,        S,         T,         H)     &kp D          &kp M      HRMR(N,        A,         I,        O)
 /*        ├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤*/
 /*        │  \       │  V       │  G       │  P       │  B       │   │  X       │  W       │ . >      │ ; :      │ - _      │*/
-            &kp BSLH   &kp V      &kp G      &kp P      &kp B          &kp X      &kp W      &kp DOT    &kp SEMI  &kp UNDER
+            &kp BSLH   &kp V      &kp G      &kp P      &kp B          &kp X      &kp W      &kp DOT    &kp SEMI  &kp MINUS
 /*        ╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯*/
                                   &kp E      &sl 1      &sl 2          &kp ENTER  &kp BSPC  &kp SPACE
 /*                              ╰──────────┴──────────┴──────────╯   ╰──────────┴──────────┴──────────╯*/
@@ -53,7 +53,7 @@
             &kp APOS   &kp LT     &kp GT     &kp DQT    &trans         &kp AMPS   &trans     &kp LBKT   &kp RBKT   &kp PRCNT
 /*        ├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤*/
 /*        │ !        │  -       │  +       │  =       │  #       │   │  |       │  :       │  (       │  )       │  ?       │*/
-            &kp EXCL   &kp UNDER  &kp PLUS   &kp EQUAL  &kp HASH       &kp PIPE   &kp COLON  &kp LPAR   &kp RPAR   &kp QMARK
+            &kp EXCL   &kp MINUS  &kp PLUS   &kp EQUAL  &kp HASH       &kp PIPE   &kp COLON  &kp LPAR   &kp RPAR   &kp QMARK
 /*        ├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤*/
 /*        │ ^        │  /       │  *       │  \       │  `       │   │  ~       │  $       │  {       │  }       │  @       │*/
             &kp CARET  &kp FSLH   &kp STAR   &kp BSLH   &kp GRAVE      &kp TILDE  &kp DLLR   &kp LBRC   &kp RBRC   &kp AT
@@ -80,21 +80,21 @@
             >;
         };
 
-//        tri_layer {
-//            bindings = <
-        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│ RESET    │          │          │          │PROFILE 0 │   │          │          │          │          │  RESET   │
-//           &sys_reset  &trans     &trans     &trans    &bt BT_SEL 0    &trans     &trans     &trans     &trans    &sys_reset
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│BOOTLOADER│          │          │          │PROFILE 1 │   │          │          │          │          │BOOTLOADER│
-//          &bootloader  &trans     &trans     &trans    &bt BT_SEL 1    &trans     &trans     &trans     &trans    &bootloader
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │          │          │ CLEAR BT │PROFILE 2 │   │          │          │          │          │          │
-//            &trans     &trans     &trans    &bt BT_CLR &bt BT_SEL 2    &trans     &trans     &trans     &trans     &trans
-        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-//                                             &trans     &trans         &trans     &trans
-        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
-//            >;
-//        };
+        config_layer {
+            bindings = <
+/*        ╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮*/
+/*        │ RESET    │          │          │          │          │   │          │          │          │          │  RESET   │*/
+           &sys_reset  &trans     &trans     &trans    &trans          &trans     &trans     &trans     &trans    &sys_reset
+/*        ├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤*/
+/*        │BOOTLOADER│          │          │          │BT CLEAR  │   │          │          │          │          │BOOTLOADER│*/
+          &bootloader  &trans     &trans     &trans    &bt BT_CLR      &trans     &trans     &trans     &trans    &bootloader
+/*        ├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤*/
+/*        │PROFILE 0 │PROFILE 1 │PROFILE 2 │PROFILE 3 │PROFILE 4 │   │          │          │          │          │          │*/
+          &bt BT_SEL 0 &bt BT_SEL1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &trans     &trans     &trans     &trans     &trans
+/*        ╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯*/
+                                  &trans     &trans     &trans         &trans     &trans     &trans
+/*                              ╰──────────┴──────────┴──────────╯   ╰──────────┴──────────┴──────────╯*/
+            >;
+        };
     };
 };
