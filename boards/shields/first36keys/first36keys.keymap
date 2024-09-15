@@ -13,6 +13,25 @@
 #define RIGHT_RING_HOLDING_TIME 200
 #define RIGHT_MIDDLE_HOLDING_TIME 200
 #define RIGHT_INDEX_HOLDING_TIME 200
+#define MASK_MODS(NAME, MODS, BINDING) \
+    ZMK_MOD_MORPH(NAME, \
+        bindings = <BINDING>, <BINDING>; \
+        mods = <MODS>; \
+    )
+MASK_MODS(masked_home, (MOD_LCTL), &kp HOME)
+MASK_MODS(masked_end,  (MOD_LCTL), &kp END)
+
+/* Caps-word, num-word and smart-mouse */
+
+// tap: sticky-shift | shift + tap/ double-tap: caps-word | hold: shift
+ZMK_MOD_MORPH(smart_shft,
+    bindings = <&sk LSHFT>, <&caps_word>;
+    mods = <(MOD_LSFT)>;
+)
+&caps_word {  // mods deactivate caps-word, requires PR #1451
+    /delete-property/ ignore-modifiers;
+};
+
 / {
 
 
@@ -30,7 +49,7 @@
 /*        │  '       │  V       │  G       │  P       │  B       │   │  X       │  W       │          │ ; :      │ . <      │*/
             &kp APOS   &kp V      &kp G      &kp P      &kp B          &kp X      &kp W      &kp ENTER  &kp SEMI   &kp DOT 
 /*        ╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯*/
-                                  &kp E      &sl 1      &sl 2          &kp RSHIFT &kp BSPC  &kp SPACE
+                                  &kp E      &sl 1      &sl 2          &kp smart_shft &kp BSPC  &kp SPACE
 /*                              ╰──────────┴──────────┴──────────╯   ╰──────────┴──────────┴──────────╯*/
             >;
         };
@@ -189,4 +208,5 @@
             bindings = <&kp>, <&kp>;
         };
     };
+    
 };
