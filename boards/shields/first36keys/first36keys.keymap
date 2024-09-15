@@ -8,11 +8,11 @@
 #define LEFT_PINKY_HOLDING_TIME 250
 #define LEFT_RING_HOLDING_TIME 200
 #define LEFT_MIDDLE_HOLDING_TIME 200
-#define LEFT_INDEX_HOLDING_TIME 150
+#define LEFT_INDEX_HOLDING_TIME 200
 #define RIGHT_PINKY_HOLDING_TIME 250
 #define RIGHT_RING_HOLDING_TIME 200
 #define RIGHT_MIDDLE_HOLDING_TIME 200
-#define RIGHT_INDEX_HOLDING_TIME 150
+#define RIGHT_INDEX_HOLDING_TIME 200
 / {
 
 
@@ -27,10 +27,10 @@
 /*        │  R       │  S       │  T       │  H       │  D       │   │  M       │  N       │  A       │  I       │  O       │*/
             HRML(R,        S,         T,         H)     &kp D          &kp M      HRMR(N,        A,         I,        O)
 /*        ├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤*/
-/*        │  '       │  V       │  G       │  P       │  B       │   │  X       │  W       │ . >      │ ; :      │ - _      │*/
-            &kp APOS   &kp V      &kp G      &kp P      &kp B          &kp X      &kp W      &kp DOT    &kp SEMI  &kp MINUS
+/*        │  '       │  V       │  G       │  P       │  B       │   │  X       │  W       │          │ ; :      │ . <      │*/
+            &kp APOS   &kp V      &kp G      &kp P      &kp B          &kp X      &kp W      &kp ENTER  &kp SEMI   &kp DOT 
 /*        ╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯*/
-                                  &kp E      &sl 1      &sl 2          &kp ENTER  &kp BSPC  &kp SPACE
+                                  &kp E      &sl 1      &sl 2          &kp RSHIFT &kp BSPC  &kp SPACE
 /*                              ╰──────────┴──────────┴──────────╯   ╰──────────┴──────────┴──────────╯*/
             >;
         };
@@ -44,8 +44,8 @@
 /*        │ !        │  -       │  +       │  =       │  #       │   │  |       │  :       │  (       │  )       │  ?       │*/
             &kp EXCL   &kp MINUS  &kp PLUS   &kp EQUAL  &kp HASH       &kp PIPE   &kp COLON  &kp LPAR   &kp RPAR   &kp QMARK
 /*        ├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤*/
-/*        │ '        │  /       │  *       │  \       │  `       │   │  ~       │  $       │  {       │  }       │  @       │*/
-            &kp APOS  &kp FSLH   &kp STAR   &kp BSLH   &kp GRAVE      &kp TILDE  &kp DLLR   &kp LBRC   &kp RBRC   &kp AT
+/*        │          │  /       │  *       │  \       │  `       │   │  ~       │  $       │  {       │  }       │  @       │*/
+            &trans     &kp FSLH   &kp STAR   &kp BSLH   &kp GRAVE      &kp TILDE  &kp DLLR   &kp LBRC   &kp RBRC   &kp AT
 /*        ╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯*/
                                   &trans     &trans     &trans         &trans     &trans     &trans
 /*                              ╰──────────┴──────────┴──────────╯   ╰──────────┴──────────┴──────────╯*/
