@@ -15,7 +15,7 @@
 #define RIGHT_INDEX_HOLDING_TIME 200
 #define MASK_MODS(NAME, MODS, BINDING) \
     ZMK_MOD_MORPH(NAME, \
-        bindings = BINDING, BINDING; \
+        bindings = <BINDING>, <BINDING>; \
         mods = MODS; \
     )
 
@@ -24,10 +24,9 @@ MASK_MODS(masked_end,  (MOD_LCTL), &kp END);
 
 // tap: sticky-shift | shift + tap/ double-tap: caps-word | hold: shift
 ZMK_MOD_MORPH(smart_shft,
-    bindings = &sk LSHFT, &caps_word;
+    bindings = <&sk LSHFT>, <&caps_word>;
     mods = (MOD_LSFT);
 )
-
 &caps_word {  // mods deactivate caps-word, requires PR #1451
     /delete-property/ ignore-modifiers;
 };
