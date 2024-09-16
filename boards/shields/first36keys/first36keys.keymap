@@ -13,10 +13,10 @@
 #define RIGHT_RING_HOLDING_TIME 200
 #define RIGHT_MIDDLE_HOLDING_TIME 200
 #define RIGHT_INDEX_HOLDING_TIME 200
-#define MASK_MODS(NAME, MODS, BINDING) \
-    ZMK_MOD_MORPH(NAME, \
-        bindings = <BINDING>, <BINDING>; \
-        mods = <MODS>; \
+#define MASK_MODS(NAME, MODS, BINDING) 
+    ZMK_MOD_MORPH(NAME, 
+        bindings = <BINDING>, <BINDING>; 
+        mods = <MODS>; 
     )
 MASK_MODS(masked_home, (MOD_LCTL), &kp HOME)
 MASK_MODS(masked_end,  (MOD_LCTL), &kp END)
