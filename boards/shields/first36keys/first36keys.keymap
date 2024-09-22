@@ -14,15 +14,6 @@
 #define RIGHT_MIDDLE_HOLDING_TIME 200
 #define RIGHT_INDEX_HOLDING_TIME 200
 
-ZMK_MOD_MORPH(smart_shft,
-    bindings = <&sk LEFT_SHIFT>, <&caps_word>;
-    mods = (MOD_LSFT);
-)
-
-&caps_word {
-    /delete-property/ ignore-modifiers;
-};
-
 / {
 
     keymap {
@@ -39,7 +30,7 @@ ZMK_MOD_MORPH(smart_shft,
 /*        │  '       │  V       │  G       │  P       │  B       │   │  X       │  W       │          │ ; :      │ . <      │*/
             &kp APOS   &kp V      &kp G      &kp P      &kp B          &kp X      &kp W      &kp ENTER  &kp SEMI   &kp DOT 
 /*        ╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯*/
-                                  &kp E      &sl 1      &sl 2          &kp smart_shft &kp BSPC  &kp SPACE
+                                  &kp E      &sl 1      &sl 2          &sk RSHFT &kp BSPC  &kp SPACE
 /*                              ╰──────────┴──────────┴──────────╯   ╰──────────┴──────────┴──────────╯*/
             >;
         };
