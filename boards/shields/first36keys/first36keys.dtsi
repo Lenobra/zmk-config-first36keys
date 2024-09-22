@@ -6,6 +6,15 @@
 
 #include <dt-bindings/zmk/matrix_transform.h>
 
+ZMK_MOD_MORPH(smart_shft,
+    bindings = <&sk LEFT_SHIFT>, <&caps_word>;
+    mods = (MOD_LSFT);
+)
+
+&caps_word {
+    /delete-property/ ignore-modifiers;
+};
+
 / {
 
     chosen {
